@@ -1,0 +1,1 @@
+initSidebarItems({"trait":[["View","A trait with common functionality for rendering front-end views."]]});
