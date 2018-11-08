@@ -37,6 +37,22 @@ impl View for HomeView {
           <span> { "The button has been clicked: " click_component " times!"} </span>
           <button !onclick=move|| { store.borrow_mut().msg(&Msg::Click) },>{ "Click me!" }</button>
           <div> { "In this time Ferris has made " click_count " new friends." } </div>
+          <table>
+            {
+                (0..click_count.parse().unwrap()).into_iter().rev().map(|i| {
+                    if i%2 == 0 {
+                        html!{
+                            <tr><th>{i.to_string()}</th></tr>
+                        }
+                    } else {
+                        html!{
+                            <tr><td>{i.to_string()}</td></tr>
+                        }
+                    }
+                    
+                }).collect::<Vec<_>>()
+            }
+          </table>
 
         </div>
         }
